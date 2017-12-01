@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Purchase Complete!
+  p Congrats customer #{id}
+  p You have purchased book isbn #{isbn}
+  a(href='/')
+    input(type='button', value='Return to Home')

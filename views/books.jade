@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    head
+        title Audio Book List
+        style
+            include ../public/stylesheets/style.css
+    body
+        a(href='/sorted')
+            input(type='button', value='Get Most Popular')
+        a(href='/authors')
+            input(type='button', value='View By Author')
+        a(href='/reviews')
+            input(type='button', value='Get Reviews By Book')
+        a(href='/')
+            input(type='button', value='Return to Home')
+        h1 Audio Book List
+        form(action='/purchase' method='POST')
+            input(type='text', name='idInput', value='Input customer id')
+            input(type='text', name='isbn', value='Input book isbn')
+            input(type='Submit', value='Purchase')
+        table
+            thead
+                th ISBN
+                th Title
+                th Publish Date
+                th Age Rating
+                th Run Time
+                th Cost (£)
+                th Publisher
+                th Narrator
+            for book in bookList
+                tr
+                    td= book.isbn
+                    td= book.title
+                    td= book.publ_date
+                    td= book.age_rating
+                    td= book.run_time
+                    td= book.purchase_price
+                    td= book.publ_name
+                    td= book.narrator
+

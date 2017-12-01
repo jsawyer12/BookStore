@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    head
+        title Reviews List
+        style
+            include ../public/stylesheets/style.css
+    body
+        a(href='/sorted')
+            input(type='button', value='Get Most Popular')
+        a(href='/authors')
+            input(type='button', value='View By Author')
+        a(href='/reviews')
+            input(type='button', value='Get Reviews By Book')
+        a(href='/')
+            input(type='button', value='Return to Home')
+        h1 Reviews List
+        table
+            thead
+                th Title
+                th Rating (1-5)
+                th Comments
+                th Customer
+            for review in reviewsList
+                tr
+                    td= review.title
+                    td= review.rating
+                    td= review.comment
+                    td= review.custFor
